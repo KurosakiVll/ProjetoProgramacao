@@ -1,18 +1,6 @@
 package com.example.calculator
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.calculator.ui.theme.CalculatorTheme
-
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -29,7 +17,6 @@ class MainActivity : AppCompatActivity() {
 
         tvDisplay = findViewById(R.id.tvDisplay)
 
-        // Números y punto
         val btnIds = listOf(
             R.id.btn0, R.id.btn1, R.id.btn2, R.id.btn3,
             R.id.btn4, R.id.btn5, R.id.btn6, R.id.btn7,
@@ -42,7 +29,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        // Operaciones
         val opIds = listOf(
             R.id.btnAdd to "+",
             R.id.btnSub to "−",
@@ -55,12 +41,10 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        // Igual
         findViewById<Button>(R.id.btnEq).setOnClickListener {
             performOp("=")
         }
 
-        // Clear
         findViewById<Button>(R.id.btnClear).setOnClickListener {
             tvDisplay.text = ""
             operand1 = null
@@ -84,13 +68,11 @@ class MainActivity : AppCompatActivity() {
             }
         }
         tvDisplay.text = if (op == "=") {
-            // Mostrar resultado y resetear
             val result = operand1.toString()
             operand1 = null
             pendingOp = null
             result
         } else {
-            // Preparar siguiente operación
             pendingOp = op
             ""
         }
