@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
@@ -20,17 +19,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <androidx.gridlayout.widget.GridLayout
+    <GridLayout
         android:id="@+id/grid"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
-        app:columnCount="4"
+        android:rowCount="5"
+        android:columnCount="4"
         app:layout_constraintTop_toBottomOf="@id/tvDisplay"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:rowCount="5">
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <Button android:id="@+id/btnClear" android:text="C" style="@style/CalcButton"/>
         <View   style="@style/Spacer"/>
@@ -56,14 +55,10 @@
             android:id="@+id/btn0"
             android:text="0"
             style="@style/CalcButton"
-            app:layout_columnSpan="2"
-            tools:ignore="GridLayout" />
+            android:layout_columnSpan="2"/>
         <Button android:id="@+id/btnDot"   android:text="." style="@style/CalcButton"/>
         <Button android:id="@+id/btnEq"    android:text="=" style="@style/CalcButton"/>
 
-    </androidx.gridlayout.widget.GridLayout>
+    </GridLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
